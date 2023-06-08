@@ -1,8 +1,8 @@
-"""auto-vote
+"""add votes
 
-Revision ID: 036aa392dfb0
-Revises: 036d0a4565b7
-Create Date: 2021-08-29 23:41:21.054819
+Revision ID: 8d46895e7a05
+Revises: 9fd39769e98b
+Create Date: 2023-06-08 18:43:27.471159
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '036aa392dfb0'
-down_revision = '036d0a4565b7'
+revision = '8d46895e7a05'
+down_revision = '9fd39769e98b'
 branch_labels = None
 depends_on = None
 

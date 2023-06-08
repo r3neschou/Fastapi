@@ -1,8 +1,8 @@
-"""add last few columns to posts table
+"""add more columns to posts table
 
-Revision ID: 036d0a4565b7
-Revises: af786b740296
-Create Date: 2021-08-29 23:14:45.193298
+Revision ID: 9fd39769e98b
+Revises: d3083ecb0333
+Create Date: 2023-06-08 18:42:14.540784
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '036d0a4565b7'
-down_revision = 'af786b740296'
+revision = '9fd39769e98b'
+down_revision = 'd3083ecb0333'
 branch_labels = None
 depends_on = None
 
@@ -28,3 +28,4 @@ def downgrade():
     op.drop_column('posts', 'published')
     op.drop_column('posts', 'created_at')
     pass
+
