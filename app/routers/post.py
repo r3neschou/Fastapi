@@ -10,7 +10,7 @@ router = APIRouter(
     tags=['Posts']
 )
 
-# Retrieve a list of posts with vote count
+@router.get("/", response_model=List[schemas.PostOut])
 def get_posts(
     db: Session = Depends(get_db),
     current_user: int = Depends(oauth2.get_current_user),
@@ -22,7 +22,7 @@ def get_posts(
         models.Vote, models.Vote.post_id == models.Post.id, isouter=True).group_by(models.Post.id).filter(models.Post.title.contains(search)).limit(limit).offset(skip).all()
     return posts
 
-# Create a new post
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def create_posts(
     post: schemas.PostCreate,
     db: Session = Depends(get_db),
@@ -34,7 +34,7 @@ def create_posts(
     db.refresh(new_post)
     return new_post
 
-# Retrieve a specific post with vote count
+@router.get("/{id}", response_model=schemas.PostOut)
 def get_post(
     id: int,
     db: Session = Depends(get_db),
@@ -49,7 +49,7 @@ def get_post(
 
     return post
 
-# Delete a specific post
+@router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_post(
     id: int,
     db: Session = Depends(get_db),
@@ -71,7 +71,7 @@ def delete_post(
 
     return Response(status_code=status.HTTP_204_NO_CONTENT)
 
-# Update a specific post
+@router.put("/{id}", response_model=schemas.Post)
 def update_post(
     id: int,
     updated_post: schemas.PostCreate,
