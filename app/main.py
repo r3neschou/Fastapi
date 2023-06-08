@@ -30,4 +30,4 @@ app.include_router(vote.router)
 @app.get("/")
 def root():
     """Root endpoint returning a greeting message."""
-    return {"message": "Welcome!"}
+    return {"message": "Hello there"}
