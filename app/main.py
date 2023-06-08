@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from fastapi.responses import FileResponse
 from . import models
 from .database import engine
 from .routers import post, user, auth, vote
 from .config import settings
 
 # Create the FastAPI app
-app = FastAPI()
+app = FastAPI(title="fastapi",
+)
 
 # Configure CORS (Cross-Origin Resource Sharing) middleware
 origins = ["*"]
@@ -31,3 +32,8 @@ app.include_router(vote.router)
 def root():
     """Root endpoint returning a greeting message."""
     return {"message": "Hello there"}
+
+favicon_path = 'favicon.ico'
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse(favicon_path)
