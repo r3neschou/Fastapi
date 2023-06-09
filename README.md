@@ -12,6 +12,6 @@ This repository contains the backend API for a social media app built using Fast
 
 ## Deployment
 
-The API is deployed on DigitalOcean and can be accessed using the domain name [reneschou.xyz](https://reneschou.xyz). The deployment is facilitated by a GitHub Actions CI/CD pipeline, ensuring automated testing and continuous delivery of updates to the production environment.
+The API is deployed on DigitalOcean and can be accessed using the domain name [reneschou.xyz](https://reneschou.xyz). Documentations [here!](https://reneschou.xyz/docs) The deployment is facilitated by a GitHub Actions CI/CD pipeline, ensuring automated testing and continuous delivery of updates to the production environment.
 
 
